@@ -7,6 +7,7 @@ function getClickGen() {
 
     // Multiplicative
     clickGen = clickGen.mul(upgrades.ppcClick.effect())
+    clickGen = clickGen.mul(upgrades.ppcCrit.effect())
 
     // Extra
 
@@ -32,7 +33,8 @@ function getTimeGen() {
 function doClickGen() {
     let gen = getClickGen()
     if (chance(upgrades.critp.effect())) {
-        gen = gen.mul(D(2).add(D(upgrades.critm.effect()).mul(0.01)))
+        gen = gen.mul(D(2).add(D(upgrades.critm.effect()).mul(0.01)));
+        SD.critCount = SD.critCount.add(1);
     }
     SD.point = SD.point.add(gen);
     SD.totalPoint = SD.totalPoint.add(gen);

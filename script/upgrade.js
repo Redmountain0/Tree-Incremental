@@ -66,13 +66,13 @@ const upgrades = {
             point: D(2000).mul(D(1.5).pow(lv)).add(D(1000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return SD.clickCount.sqrt().log(2).div(10).mul(lv).add(1)
+        return SD.clickCount.add(1).sqrt(2).log(2).div(10).mul(lv).add(1)
     }),
     "ppcCrit": new Upgrade("ppcCrit", D(0), function(lv=SD.upgrade[this.id]) {
         return {
             point: D(5000).mul(D(1.5).pow(lv)).add(D(2500).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return D(1)
+        return SD.critCount.add(1).sqrt(2).log(1.2).div(5).mul(lv).add(1)
     }),
 }

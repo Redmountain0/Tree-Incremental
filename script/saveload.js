@@ -12,6 +12,7 @@ const defaultSD = {
     },
     start: new Date().getTime(),
     clickCount: D(0),
+    critCount: D(0),
     totalPoint: D(0),
     totalClickPoint: D(0),
     totalTimePoint: D(0),
