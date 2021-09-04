@@ -113,7 +113,7 @@ const treeNodeList = [
             <br><h3>Upgrade: Point per Sec I</h3>
             Level: ${SD.upgrade.pps1}<br>
             Cost: ${priceMsg(upgrades.pps1.cost())}<br>
-            Effect: +${upgrades.pps1.effect()} ppS<br>
+            Effect: +${$N(upgrades.pps1.effect())} ppS<br>
             <button class="upgradeBtn" onclick="upgrades.pps1.buy()">Buy</button>
             `
         },
@@ -145,12 +145,27 @@ const treeNodeList = [
             <br><h3>Upgrade: ppC based on Click Count</h3>
             Level: ${SD.upgrade.ppcClick}<br>
             Cost: ${priceMsg(upgrades.ppcClick.cost())}<br>
-            Effect: x${upgrades.ppcClick.effect()} ppC<br>
+            Effect: x${$N(upgrades.ppcClick.effect())} ppC<br>
             <button class="upgradeBtn" onclick="upgrades.ppcClick.buy()">Buy</button>
             `
         },
         unlock() {
             return SD.upgrade.ppc1.gte(15);
+        },
+    }),
+    new TreeNode({ // ppsTime
+        id: "ppcTime", cnt: ["pps1"], icon: ".resources/ppsTime.png",
+        position: [2, -1], size: 64,
+        rawhtml() {
+            return `<br><h3>Upgrade: ppS based on Time Played</h3>
+            Level: ${SD.upgrade.ppsTime}<br>
+            Cost: ${priceMsg(upgrades.ppsTime.cost())}<br>
+            Effect: x${$N(upgrade.ppsTime.effect())} ppS<br>
+            <button class="upgradeBtn" onclick="upgrades.ppsTime.buy()">Buy</button>
+            `
+        },
+        unlock() {
+            return SD.upgrade.pps1.gte(12)
         },
     }),
     new TreeNode({ // ppcCrit
@@ -161,7 +176,7 @@ const treeNodeList = [
             <br><h3>Upgrade: ppC based on Crit Count</h3>
             Level: ${SD.upgrade.ppcCrit}<br>
             Cost: ${priceMsg(upgrades.ppcCrit.cost())}<br>
-            Effect: +${upgrades.ppcCrit.effect()} ppC<br>
+            Effect: +${$N(upgrades.ppcCrit.effect())} ppC<br>
             <button class="upgradeBtn" onclick="upgrades.ppcCrit.buy()">Buy</button>
             `
         },
@@ -177,7 +192,7 @@ const treeNodeList = [
             <br><h3>Upgrade: Critical Click Chance</h3>
             Level: ${SD.upgrade.critp}<br>
             Cost: ${priceMsg(upgrades.critp.cost())}<br>
-            Effect: +${upgrades.critp.effect()}% Crit Chance<br>
+            Effect: +${$N(upgrades.critp.effect())}% Crit Chance<br>
             <button class="upgradeBtn" onclick="upgrades.critp.buy()">Buy</button>
             `
         },
@@ -193,7 +208,7 @@ const treeNodeList = [
             <br><h3>Upgrade: Critical Click Mult</h3>
             Level: ${SD.upgrade.critm}<br>
             Cost: ${priceMsg(upgrades.critm.cost())}<br>
-            Effect: +${upgrades.critm.effect()}% Crit Mult<br>
+            Effect: +${$N(upgrades.critm.effect())}% Crit Mult<br>
             <button class="upgradeBtn" onclick="upgrades.critm.buy()">Buy</button>
             `
         },

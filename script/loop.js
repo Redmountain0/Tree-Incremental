@@ -15,7 +15,7 @@ function mainLoop() {
 function saveLoop() {
     save();
 
-    setTimeout(mainLoop, 10*1000);
+    setTimeout(saveLoop, 10*1000);
 }
 
 function infoRender() {
