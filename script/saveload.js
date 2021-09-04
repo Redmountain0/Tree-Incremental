@@ -1,5 +1,6 @@
 const defaultSD = {
     point: D(0),
+    alphaPoint: D(0),
     version: 0,
     upgrade: {
         ppc1: D(0),
@@ -15,6 +16,7 @@ const defaultSD = {
     clickCount: D(0),
     critCount: D(0),
     totalPoint: D(0),
+    totalAlphaPoint: D(0),
     totalClickPoint: D(0),
     totalTimePoint: D(0),
 }

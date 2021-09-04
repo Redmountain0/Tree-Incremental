@@ -29,14 +29,14 @@ class Upgrade {
 const upgrades = {
     "ppc1": new Upgrade("ppc1", D(1000), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(15).mul(lv.add(1).pow(1.5)).add(D(10).mul(lv)).add(D(5).mul(D(1.1).pow(lv))).floor()
+            point: D(15).mul(lv.add(1).pow(1.5)).add(D(10).mul(lv)).add(D(5).mul(D(1.2).pow(lv))).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
     }),
     "pps1": new Upgrade("pps1", D(1000), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(40).mul(lv.pow(1.5)).add(100).add(D(5).mul(D(1.1).pow(lv))).floor()
+            point: D(40).mul(lv.pow(1.5)).add(100).add(D(5).mul(D(1.2).pow(lv))).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
@@ -66,20 +66,20 @@ const upgrades = {
             point: D(2000).mul(D(1.5).pow(lv)).add(D(1000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return SD.clickCount.add(1).sqrt(2).log(2).div(10).mul(lv).add(1)
+        return SD.clickCount.add(1).sqrt(2).log(2).div(10).mul(lv.pow(0.7)).add(1)
     }),
     "ppcCrit": new Upgrade("ppcCrit", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(5000).mul(D(1.5).pow(lv)).add(D(2500).mul(lv)).floor()
+            point: D(5000).mul(D(1.7).pow(lv)).add(D(2500).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return SD.critCount.add(1).sqrt(2).log(1.2).div(5).mul(lv).add(1)
+        return SD.critCount.add(1).sqrt(2).log(1.4).div(5).mul(lv.pow(0.7)).add(1)
     }),
     "ppsTime": new Upgrade("ppsTime", D(25), function(lv=SD.upgrade[this.id]) {
         return {
             point: D(3000).mul(D(1.5).pow(lv)).add(D(1500).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return D(new Date().getTime()-SD.start).div(1000).add(1).sqrt(2.5).log(2).div(10).mul(lv).add(1)
+        return D(new Date().getTime()-SD.start).div(1000).add(1).sqrt(2.5).log(2).div(10).mul(lv.pow(0.7)).add(1)
     }),
 }

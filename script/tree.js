@@ -176,7 +176,7 @@ const treeNodeList = [
             <br><h3>Upgrade: ppC based on Crit Count</h3>
             Level: ${SD.upgrade.ppcCrit}<br>
             Cost: ${priceMsg(upgrades.ppcCrit.cost())}<br>
-            Effect: +${$N(upgrades.ppcCrit.effect())} ppC<br>
+            Effect: x${$N(upgrades.ppcCrit.effect())} ppC<br>
             <button class="upgradeBtn" onclick="upgrades.ppcCrit.buy()">Buy</button>
             `
         },
@@ -266,6 +266,34 @@ const treeNodeList = [
             return SD.totalPoint.gte(10000)
         },
         unlockMessage: "10000 Total Point"
+    }),
+    new TreeNode({ // alpha Point
+        id: "alphaPoint", cnt: ["main"], icon: "./resources/alphaPoint.png",
+        position: [-2, 0], size: 64,
+        rawhtml() {
+            return `
+            <br><h3>Alpha Point</h3>
+            * Not done yet
+            `
+        },
+        unlock() {
+            return SD.totalPoint.gte(1000000)
+        },
+        unlockMessage: "1000000 Total Point"
+    }),
+    new TreeNode({ // prestige
+        id: "prestige", cnt: ["alphaPoint"], icon: "./resources/prestige.png",
+        position: [-3, -1], size: 64,
+        rawhtml() {
+            return `
+            <br><h3>Prestige</h3>
+            * Not done yet
+            `
+        },
+        unlock() {
+            return SD.totalAlphaPoint.gte(1000)
+        },
+        unlockMessage: "1000 Total Alpha Point"
     }),
 ]
 
