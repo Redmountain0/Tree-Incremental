@@ -23,7 +23,8 @@ function getTimeGen() {
     timeGen = timeGen.add(SD.upgrade.pps1)
 
     // Multiplicative
-
+    timeGen = timeGen.mul(upgrades.ppsTime.effect())
+    
     // Extra
 
     // return
