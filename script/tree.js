@@ -83,7 +83,7 @@ function treeRender() {
 }
 
 const treeNodeList = [
-    new TreeNode({
+    new TreeNode({ // the Root
         id: "main", cnt: [], icon: "./resources/mainMenu.png",
         position: [0, 0], size: 64,
         rawhtml() {
@@ -104,7 +104,7 @@ const treeNodeList = [
             return true;
         },
     }),
-    new TreeNode({
+    new TreeNode({ // pps
         id: "pps1", cnt: ["ppc1"], icon: "./resources/ppsUpgrade.png",
         position: [1, -1], size: 64,
         rawhtml() {
@@ -120,7 +120,7 @@ const treeNodeList = [
             return SD.upgrade.ppc1.gte(8);
         },
     }),
-    new TreeNode({
+    new TreeNode({ // ppc
         id: "ppc1", cnt: ["main"], icon: "./resources/ppcUpgrade.png",
         position: [1, 0], size: 64,
         rawhtml() {
@@ -136,7 +136,7 @@ const treeNodeList = [
             return true;
         },
     }),
-    new TreeNode({
+    new TreeNode({ // ppcClick
         id: "ppcClick", cnt: ["ppc1"], icon: "./resources/ppcClick.png",
         position: [2, 0], size: 64,
         rawhtml() {
@@ -152,12 +152,12 @@ const treeNodeList = [
             return SD.upgrade.ppc1.gte(15);
         },
     }),
-    new TreeNode({
+    new TreeNode({ // ppcCrit
         id: "ppcCrit", cnt: ["ppcClick", "critChance"], icon: "./resources/ppcCrit.png",
         position: [3, 0], size: 64,
         rawhtml() {
             return `
-            <br><h3>Upgrade: Point per Click I</h3>
+            <br><h3>Upgrade: ppC based on Crit Count</h3>
             Level: ${SD.upgrade.ppcCrit}<br>
             Cost: ${priceMsg(upgrades.ppcCrit.cost())}<br>
             Effect: +${upgrades.ppcCrit.effect()} ppC<br>
@@ -168,7 +168,7 @@ const treeNodeList = [
             return SD.upgrade.ppcClick.gte(5) && SD.upgrade.critChance.gte(3);
         },
     }),
-    new TreeNode({
+    new TreeNode({ // CritChance
         id: "critChance", cnt: ["ppc1"], icon: "./resources/critPercent.png",
         position: [2, 1], size: 64,
         rawhtml() {
@@ -184,7 +184,7 @@ const treeNodeList = [
             return SD.upgrade.ppc1.gte(10)
         },
     }),
-    new TreeNode({
+    new TreeNode({ // CritMult
         id: "critMult", cnt: ["critChance"], icon: "./resources/critMult.png",
         position: [3, 1], size: 64,
         rawhtml() {
@@ -200,7 +200,7 @@ const treeNodeList = [
             return SD.upgrade.critp.gte(5)
         },
     }),
-    new TreeNode({
+    new TreeNode({ // Setting
         id: "setting", cnt: ["main"], icon: "./resources/settingMenu.png",
         position: [0, 1], size: 64,
         rawhtml() {
@@ -212,7 +212,7 @@ const treeNodeList = [
             return true;
         }
     }),
-    new TreeNode({
+    new TreeNode({ // Stats
         id: "stat", cnt: ["setting"], icon: "./resources/statMenu.png",
         position: [0, 2], size: 64,
         rawhtml() {
@@ -238,7 +238,7 @@ const treeNodeList = [
         },
         unlockMessage: "5000 Total Point"
     }),
-    new TreeNode({
+    new TreeNode({ // Achievement
         id: "achievement", cnt: ["setting"], icon: "./resources/achievementMenu.png",
         position: [1, 2], size: 64,
         rawhtml() {
