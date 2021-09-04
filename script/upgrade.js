@@ -42,7 +42,7 @@ const upgrades = {
         return lv
     }),
     "stat": new Upgrade("stat", D(2), function(lv=SD.upgrade[this.id]) {
-        priceset = [{point: D(3000)}, {point: D(100000)}, {point: D(Infinity)}]
+        let priceset = [{point: D(3000)}, {point: D(100000)}, {point: D(Infinity)}]
         return priceset[lv]
     }, function(lv=SD.upgrade[this.id]) {
         return lv

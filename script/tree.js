@@ -160,7 +160,7 @@ const treeNodeList = [
             return `<br><h3>Upgrade: ppS based on Time Played</h3>
             Level: ${SD.upgrade.ppsTime}<br>
             Cost: ${priceMsg(upgrades.ppsTime.cost())}<br>
-            Effect: x${$N(upgrade.ppsTime.effect())} ppS<br>
+            Effect: x${$N(upgrades.ppsTime.effect())} ppS<br>
             <button class="upgradeBtn" onclick="upgrades.ppsTime.buy()">Buy</button>
             `
         },
