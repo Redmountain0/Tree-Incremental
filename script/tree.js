@@ -50,7 +50,8 @@ class TreeNode {
             lockImg.src = "./resources/locked.png"
             $("#treeDisplay").appendChild(lockImg);
         } else nodeDiv.classList.remove('locked');
-        
+
+        if (!display == "visible") return;
         // Code idea by spotky1004
         for (let i in this.connection) {
             let strokeTo = treeNodeList.find((e) => e.id == this.connection[i])
