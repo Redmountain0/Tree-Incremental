@@ -1,0 +1,98 @@
+body {
+    background-color: #232335;
+    image-rendering: crisp-edges;
+}
+
+#pointDisplay {
+    margin: 1vh 1vh 1vw 1vw;
+    font-size: 25px;
+    color: #ccccdd;
+    text-shadow: 1px 1px 4px #aaaabb;
+}
+
+#pointDisplayInner {
+    font-size: 28px;
+    color: #bbbbdd;
+    text-shadow: 1px 1px 4px #aaaacc;
+}
+
+#treeDisplay {
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    width: 80vw;
+    height: 100vh;
+    margin: 0px auto;
+    pointer-events: none;
+}
+
+#clickDisplay {
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    width: 80vw;
+    height: 100vh;
+    margin: 0px auto;
+    z-index: -1;
+}
+
+#infoDisplay {
+    position: absolute;
+    top: 0vh;
+    left: 80vw;
+    width: 20vw;
+    height: 100vh;
+    background-color: #8989b8;
+    margin: 0px auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.treeNode {
+    transition: box-shadow 0.4s, transform 0.4s;
+    pointer-events: auto;
+}
+
+.treeNode:hover {
+    box-shadow: 1px 1px 4px #ccccdd;
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.treeNode:active {
+    box-shadow: 1px 1px 4px #ccccdd;
+    transform: scale(0.9);
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.selected {
+    transform: scale(0.9);
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+#connectLine {
+    position: absolute;
+    left: 0vw;
+    top: 0vh;
+    width: 80vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+.upgradeBtn {
+    width: 5vw;
+    height: 3vh;
+    border-radius: 1vw;
+    margin: 1vw auto;
+}
+
+.locked { 
+    filter: brightness(0.6);
+    pointer-events: none;
+}
+.lockImg {
+    position: absolute;
+}
+
+h3 {
+    text-shadow: 1px 1px 4px #aaaacc;
+}
