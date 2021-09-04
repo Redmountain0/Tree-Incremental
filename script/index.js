@@ -41,7 +41,7 @@ function timeNotation(sec) {
     if (sec > 60) return `${(sec/60).toFixed(2)}m`;
     if (sec > 1) return `${(sec).toFixed(1)}s`;
     return `${(sec*1000).toFixed(0)}ms`;
-  }
+}
 
 function priceMsg(price) {
     let priceName = {"point": "points", "alphaPoint": "α points"};

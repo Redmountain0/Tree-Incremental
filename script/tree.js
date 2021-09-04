@@ -154,7 +154,7 @@ const treeNodeList = [
         },
     }),
     new TreeNode({ // ppsTime
-        id: "ppcTime", cnt: ["pps1"], icon: ".resources/ppsTime.png",
+        id: "ppsTime", cnt: ["pps1"], // icon: ".resources/ppsTime.png",
         position: [2, -1], size: 64,
         rawhtml() {
             return `<br><h3>Upgrade: ppS based on Time Played</h3>
@@ -181,7 +181,7 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.ppcClick.gte(5) && SD.upgrade.critChance.gte(3);
+            return SD.upgrade.ppcClick.gte(5) && SD.upgrade.critp.gte(3);
         },
     }),
     new TreeNode({ // CritChance
