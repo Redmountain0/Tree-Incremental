@@ -118,7 +118,7 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.ppc1.gte(8);
+            return SD.upgrade.ppc1.gte(5);
         },
     }),
     new TreeNode({ // ppc
@@ -145,7 +145,7 @@ const treeNodeList = [
             <br><h3>Upgrade: ppC based on Click Count</h3>
             Level: ${SD.upgrade.ppcClick}<br>
             Cost: ${priceMsg(upgrades.ppcClick.cost())}<br>
-            Effect: +${upgrades.ppcClick.effect()} ppC<br>
+            Effect: x${upgrades.ppcClick.effect()} ppC<br>
             <button class="upgradeBtn" onclick="upgrades.ppcClick.buy()">Buy</button>
             `
         },

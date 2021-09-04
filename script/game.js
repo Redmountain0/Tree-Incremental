@@ -6,6 +6,7 @@ function getClickGen() {
     clickGen = clickGen.add(upgrades.ppc1.effect())
 
     // Multiplicative
+    clickGen = clickGen.mul(upgrades.ppcClick.effect())
 
     // Extra
 
@@ -36,6 +37,7 @@ function doClickGen() {
     SD.point = SD.point.add(gen);
     SD.totalPoint = SD.totalPoint.add(gen);
     SD.totalClickPoint = SD.totalClickPoint.add(gen);
+    SD.clickCount = SD.clickCount.add(1);
 }
 
 function doTimeGen(dt) {
