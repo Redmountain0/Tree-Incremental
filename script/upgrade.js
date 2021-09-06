@@ -29,14 +29,14 @@ class Upgrade {
 const upgrades = {
     "ppc1": new Upgrade("ppc1", D(1000), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(12).mul(lv.add(1).pow(1.5)).add(D(5).mul(lv)).add(D(7).mul(D(1.2).pow(lv))).floor()
+            point: D(12).mul(lv.add(1).pow(1.5)).add(D(5).mul(lv)).add(D(8).mul(D(1.2).pow(lv))).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
     }),
     "pps1": new Upgrade("pps1", D(1000), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(40).mul(lv.pow(1.5)).add(100).add(D(5).mul(D(1.1).pow(lv))).floor()
+            point: D(40).mul(lv.pow(1.5)).add(100).add(D(8).mul(D(1.2).pow(lv))).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
