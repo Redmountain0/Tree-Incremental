@@ -295,8 +295,6 @@ const treeNodeList = [
         },
         unlockMsg: "10000 Total Point"
     }),
-<<<<<<< Updated upstream
-=======
     new TreeNode({ // alpha Point
         id: "alphaPoint", cnt: ["main"], icon: "./resources/alphaPoint.png",
         position: [-2, 0], size: 64,
@@ -325,7 +323,6 @@ const treeNodeList = [
         },
         unlockMsg: "1000 Total Alpha Point"
     }),
->>>>>>> Stashed changes
 ]
 
 let nodeSelected = "main";
