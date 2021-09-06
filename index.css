@@ -87,7 +87,6 @@ body {
 
 .locked { 
     filter: brightness(0.6);
-    pointer-events: none;
 }
 .lockImg {
     position: absolute;
@@ -95,4 +94,25 @@ body {
 
 h3 {
     text-shadow: 1px 1px 4px #aaaacc;
+}
+
+#unlockInfoDisplay {
+    position: absolute;
+    padding: 0.5em;
+    border: 0.2vw solid #abb;
+    background-color: #121225;
+    color: #abb;
+    opacity: 0;
+    font-size: 10px;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+#unlockInfoDisplay.active {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+h6 {
+    margin: 0px;
 }

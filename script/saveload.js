@@ -55,6 +55,8 @@ function load() {
 }
 
 function hardReset() {
+    if (!confirm("Do you really want to reset *all* progress?")) return
     delete localStorage[address];
     load(address);
+    treeReset();
 }

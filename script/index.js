@@ -47,7 +47,7 @@ function priceMsg(price) {
     let priceName = {"point": "points", "alphaPoint": "α points"};
     let msg = "";
     for (let i in price) {
-        msg += `${price[i]} ${priceName[i]} /`;
+        msg += `${$N(price[i])} ${priceName[i]} /`;
     }
     return msg.slice(0, -1);
 }

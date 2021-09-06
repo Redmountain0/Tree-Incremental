@@ -7,6 +7,7 @@ class TreeNode {
         this.icon = attrs.icon ?? "./resources/noIcon.png";
         this.unlock = attrs.unlock ?? function() {return true};
         this.id = attrs.id ?? 0;
+        this.unlockMsg = attrs.unlockMsg ?? "";
     }
 
     render() {
@@ -17,7 +18,6 @@ class TreeNode {
         let nodeDiv = document.createElement('img');
         nodeDiv.classList.add('treeNode');
         nodeDiv.id = `ID${this.id}`;
-        nodeDiv.onclick = new Function(`nodeSelected = "${this.id}"`)
         $("#treeDisplay").appendChild(nodeDiv);
     }
 
@@ -32,6 +32,16 @@ class TreeNode {
             this.unlocked = true;
             display = "visible";
         }
+        nodeDiv.onmouseover = new Function(`
+            $("#unlockInfoDisplay").classList.add('active');
+            $("#unlockInfoDisplay").style.left = "${100*this.position[0]+($("#treeDisplay").clientWidth+this.size)/2}px";
+            $("#unlockInfoDisplay").style.bottom = "${100*this.position[1]+($("#treeDisplay").clientHeight+this.size)/2}px";
+            $("#unlockInfoDisplay").innerHTML = "<h6>Unlock At:</h6>${this.unlockMsg}";
+        `);
+        nodeDiv.onmouseout = function() {
+            $("#unlockInfoDisplay").classList.remove('active');
+        }
+        nodeDiv.onclick = this.unlocked ? new Function(`nodeSelected = "${this.id}"`) : () => {}
         nodeDiv.style.position = "absolute";
         nodeDiv.style.display = display == "visible" ? "block" : "none";
         nodeDiv.style.left = `${100*this.position[0]+($("#treeDisplay").clientWidth-this.size)/2}px`;
@@ -66,6 +76,14 @@ class TreeNode {
             $("#connectLine").append(Line)
         }
     }
+}
+
+function treeReset() {
+    $("#treeDisplay").innerHTML = "";
+    treeNodeList.forEach((a) => {
+        a.unlocked = false;
+    });
+    treeRender();
 }
 
 function treeRender() {
@@ -120,6 +138,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.ppc1.gte(5);
         },
+        unlockMsg: "ppC upgrade Lv.5",
     }),
     new TreeNode({ // ppc
         id: "ppc1", cnt: ["main"], icon: "./resources/ppcUpgrade.png",
@@ -129,7 +148,7 @@ const treeNodeList = [
             <br><h3>Upgrade: Point per Click I</h3>
             Level: ${SD.upgrade.ppc1}<br>
             Cost: ${priceMsg(upgrades.ppc1.cost())}<br>
-            Effect: +${upgrades.ppc1.effect()} ppC<br>
+            Effect: +${$N(upgrades.ppc1.effect())} ppC<br>
             <button class="upgradeBtn" onclick="upgrades.ppc1.buy()">Buy</button>
             `
         },
@@ -150,8 +169,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.ppc1.gte(15);
+            return SD.upgrade.ppc1.gte(10) && SD.clickCount.gte(500);
         },
+        unlockMsg: "ppC upgrade Lv.10, 500 click count",
     }),
     new TreeNode({ // ppsTime
         id: "ppsTime", cnt: ["pps1"], // icon: ".resources/ppsTime.png",
@@ -167,6 +187,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.pps1.gte(12)
         },
+        unlockMsg: "ppS upgrade Lv.12",
     }),
     new TreeNode({ // ppcCrit
         id: "ppcCrit", cnt: ["ppcClick", "critChance"], icon: "./resources/ppcCrit.png",
@@ -183,6 +204,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.ppcClick.gte(5) && SD.upgrade.critp.gte(3);
         },
+        unlockMsg: "ppC per Click upgrade Lv.5, Crit Chance upgrade Lv.3",
     }),
     new TreeNode({ // CritChance
         id: "critChance", cnt: ["ppc1"], icon: "./resources/critPercent.png",
@@ -197,8 +219,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.ppc1.gte(10)
+            return SD.upgrade.ppc1.gte(15)
         },
+        unlockMsg: "ppS upgrade Lv.15",
     }),
     new TreeNode({ // CritMult
         id: "critMult", cnt: ["critChance"], icon: "./resources/critMult.png",
@@ -213,8 +236,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.critp.gte(5)
+            return SD.upgrade.critp.gte(5) && SD.critCount.gte(150)
         },
+        unlockMsg: "Crit Chance ugprade Lv.5, 150 crit count",
     }),
     new TreeNode({ // Setting
         id: "setting", cnt: ["main"], icon: "./resources/settingMenu.png",
@@ -222,6 +246,10 @@ const treeNodeList = [
         rawhtml() {
             return `
             <br><h3>Setting</h3>
+
+            <button class="upgradeBtn" onclick="save()">Save</button>
+            <button class="upgradeBtn" onclick="load()">Load</button><br>
+            <button class="upgradeBtn" onclick="hardReset()" style="color: #a00; background-color: #fcc;">Hard Reset</button>
             `
         },
         unlock() {
@@ -252,7 +280,7 @@ const treeNodeList = [
         unlock() {
             return SD.totalPoint.gte(5000)
         },
-        unlockMessage: "5000 Total Point"
+        unlockMsg: "5000 Total Point"
     }),
     new TreeNode({ // Achievement
         id: "achievement", cnt: ["setting"], icon: "./resources/achievementMenu.png",
@@ -265,8 +293,39 @@ const treeNodeList = [
         unlock() {
             return SD.totalPoint.gte(10000)
         },
-        unlockMessage: "10000 Total Point"
+        unlockMsg: "10000 Total Point"
     }),
+<<<<<<< Updated upstream
+=======
+    new TreeNode({ // alpha Point
+        id: "alphaPoint", cnt: ["main"], icon: "./resources/alphaPoint.png",
+        position: [-2, 0], size: 64,
+        rawhtml() {
+            return `
+            <br><h3>Alpha Point</h3>
+            * Not done yet
+            `
+        },
+        unlock() {
+            return SD.totalPoint.gte(1000000)
+        },
+        unlockMsg: "1000000 Total Point"
+    }),
+    new TreeNode({ // prestige
+        id: "prestige", cnt: ["alphaPoint"], icon: "./resources/prestige.png",
+        position: [-3, -1], size: 64,
+        rawhtml() {
+            return `
+            <br><h3>Prestige</h3>
+            * Not done yet
+            `
+        },
+        unlock() {
+            return SD.totalAlphaPoint.gte(1000)
+        },
+        unlockMsg: "1000 Total Alpha Point"
+    }),
+>>>>>>> Stashed changes
 ]
 
 let nodeSelected = "main";

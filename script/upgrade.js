@@ -29,7 +29,11 @@ class Upgrade {
 const upgrades = {
     "ppc1": new Upgrade("ppc1", D(1000), function(lv=SD.upgrade[this.id]) {
         return {
+<<<<<<< Updated upstream
             point: D(15).mul(lv.add(1).pow(1.5)).add(D(10).mul(lv)).add(D(5).mul(D(1.1).pow(lv))).floor()
+=======
+            point: D(12).mul(lv.add(1).pow(1.5)).add(D(5).mul(lv)).add(D(7).mul(D(1.2).pow(lv))).floor()
+>>>>>>> Stashed changes
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
@@ -42,30 +46,32 @@ const upgrades = {
         return lv
     }),
     "stat": new Upgrade("stat", D(2), function(lv=SD.upgrade[this.id]) {
-        let priceset = [{point: D(3000)}, {point: D(100000)}, {point: D(Infinity)}]
+        let priceset = [{point: D(3000)}, {point: D(100000)}, {point: D("1e1e10")}]
         return priceset[lv]
     }, function(lv=SD.upgrade[this.id]) {
         return lv
     }),
     "critp": new Upgrade("critp", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(1000).mul(D(2).pow(lv)).add(D(500).mul(lv)).floor()
+            point: D(2500).mul(D(2).pow(lv)).add(D(500).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
     }),
     "critm": new Upgrade("critm", D(160), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(2000).mul(D(1.5).pow(lv)).add(D(1000).mul(lv)).floor()
+            point: D(2000).mul(D(1.5).pow(lv)).add(D(1000).mul(lv)).floor(),
+            alphaPoint: D(1)
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv.mul(5)
     }),
     "ppcClick": new Upgrade("ppcClick", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(2000).mul(D(1.5).pow(lv)).add(D(1000).mul(lv)).floor()
+            point: D(1500).mul(D(2).pow(lv)).add(D(1000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
+<<<<<<< Updated upstream
         return SD.clickCount.add(1).sqrt(2).log(2).div(10).mul(lv).add(1)
     }),
     "ppcCrit": new Upgrade("ppcCrit", D(25), function(lv=SD.upgrade[this.id]) {
@@ -74,12 +80,26 @@ const upgrades = {
         }
     }, function(lv=SD.upgrade[this.id]) {
         return SD.critCount.add(1).sqrt(2).log(1.2).div(5).mul(lv).add(1)
+=======
+        return SD.clickCount.add(1).pow(0.5).log(2).div(10).mul(lv.pow(0.7)).add(1)
+    }),
+    "ppcCrit": new Upgrade("ppcCrit", D(25), function(lv=SD.upgrade[this.id]) {
+        return {
+            point: D(5000).mul(D(2).pow(lv)).add(D(3000).mul(lv)).floor()
+        }
+    }, function(lv=SD.upgrade[this.id]) {
+        return SD.critCount.add(1).pow(0.4).log(1.5).div(5).mul(lv.pow(0.7)).add(1)
+>>>>>>> Stashed changes
     }),
     "ppsTime": new Upgrade("ppsTime", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(3000).mul(D(1.5).pow(lv)).add(D(1500).mul(lv)).floor()
+            point: D(4000).mul(D(1.6).pow(lv)).add(D(2000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
+<<<<<<< Updated upstream
         return D(new Date().getTime()-SD.start).div(1000).add(1).sqrt(2.5).log(2).div(10).mul(lv).add(1)
+=======
+        return D(new Date().getTime()-SD.start).div(1000).add(1).pow(0.3).log(2).div(10).mul(lv.pow(0.7)).add(1)
+>>>>>>> Stashed changes
     }),
 }
