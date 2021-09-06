@@ -174,7 +174,7 @@ const treeNodeList = [
         unlockMsg: "ppC upgrade Lv.10, 500 click count",
     }),
     new TreeNode({ // ppsTime
-        id: "ppsTime", cnt: ["pps1"], // icon: ".resources/ppsTime.png",
+        id: "ppsTime", cnt: ["pps1"], icon: "./resources/ppsTime.png",
         position: [2, -1], size: 64,
         rawhtml() {
             return `<br><h3>Upgrade: ppS based on Time Played</h3>
@@ -305,9 +305,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.totalPoint.gte(1000000)
+            return SD.totalPoint.gte(250000)
         },
-        unlockMsg: "1000000 Total Point"
+        unlockMsg: "250000 Total Point"
     }),
     new TreeNode({ // prestige
         id: "prestige", cnt: ["alphaPoint"], icon: "./resources/prestige.png",
