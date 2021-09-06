@@ -11,6 +11,7 @@ const defaultSD = {
         ppcClick: D(0),
         ppcCrit: D(0),
         ppsTime: D(0),
+        alphaPoint: D(0),
     },
     start: new Date().getTime(),
     clickCount: D(0),

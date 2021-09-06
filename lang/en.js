@@ -94,7 +94,11 @@ languageSet.en = {
         `},
         alphaPoint() {return `
             <br><h3>Alpha Point</h3>
-            * Not done yet
+            You have ${$N(SD.alphaPoint)} α points<br><hr><br>
+            Level: ${SD.upgrade.alphaPoint}<br>
+            Cost: ${priceMsg(upgrades.alphaPoint.cost())}<br>
+            Effect: x${$N(upgrades.alphaPoint.effect())} α ppS<br>
+            <button class="upgradeBtn" onclick="upgrades.alphaPoint.buy()">Buy</button>
         `},
         prestige() {return `
             <br><h3>Prestige</h3>

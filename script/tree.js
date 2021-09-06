@@ -253,8 +253,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return true;
-        }
+            return SD.totalPoint.gte(500);
+        },
+        unlockMsg: "500 Total Point"
     }),
     new TreeNode({ // Stats
         id: "stat", cnt: ["setting"], icon: "./resources/statMenu.png",
@@ -278,9 +279,9 @@ const treeNodeList = [
             return stat
         },
         unlock() {
-            return SD.totalPoint.gte(5000)
+            return SD.totalPoint.gte(2000)
         },
-        unlockMsg: "5000 Total Point"
+        unlockMsg: "2000 Total Point"
     }),
     new TreeNode({ // Achievement
         id: "achievement", cnt: ["setting"], icon: "./resources/achievementMenu.png",

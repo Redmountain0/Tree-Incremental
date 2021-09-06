@@ -91,8 +91,12 @@ languageSet.ko = {
             * 미완성
         `},
         alphaPoint() {return `
-            <br><h3>알파 포인트</h3>
-            * 미완성
+            <br><h3>α 포인트</h3>
+            현재 ${$N(SD.alphaPoint)} α 포인트 보유 중<br><hr><br>
+            레벨: ${SD.upgrade.alphaPoint}<br>
+            가격: ${priceMsg(upgrades.alphaPoint.cost())}<br>
+            효과: x${$N(upgrades.alphaPoint.effect())} α ppS<br>
+            <button class="upgradeBtn" onclick="upgrades.alphaPoint.buy()">구매</button>
         `},
         prestige() {return `
             <br><h3>프레스티지</h3>

@@ -56,8 +56,8 @@ const upgrades = {
     }),
     "critm": new Upgrade("critm", D(160), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(25000).mul(D(1.6).pow(lv)).add(D(75000)).floor(),
-            alphaPoint: D(1)
+            point: D(50000).mul(D(1.6).pow(lv)).add(D(50000)).floor(),
+            alphaPoint: lv.pow(1.6).add(1).div(3).ceil()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv.mul(5)
@@ -82,5 +82,12 @@ const upgrades = {
         }
     }, function(lv=SD.upgrade[this.id]) {
         return D(new Date().getTime()-SD.start).div(1000).add(1).pow(0.3).log(1.8).div(10).mul(lv.pow(0.7)).add(1)
+    }),
+    "alphaPoint": new Upgrade("alphaPoint", D(25), function(lv=SD.upgrade[this.id]) {
+        return {
+            point: D(100000).mul(D(3).pow(lv)).add(D(200000).mul(lv)).floor()
+        }
+    }, function(lv=SD.upgrade[this.id]) {
+        return lv.pow(2)
     }),
 }

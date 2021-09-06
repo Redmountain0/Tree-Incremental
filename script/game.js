@@ -31,6 +31,10 @@ function getTimeGen() {
     return timeGen
 }
 
+function getAlphaGen() {
+    return D(1).div(60).mul(upgrades.alphaPoint.effect());
+}
+
 function doClickGen() {
     let gen = getClickGen()
     if (chance(upgrades.critp.effect())) {
@@ -44,7 +48,11 @@ function doClickGen() {
 }
 
 function doTimeGen(dt) {
-    SD.point = SD.point.add(getTimeGen()*dt);
-    SD.totalPoint = SD.totalPoint.add(getTimeGen()*dt);
-    SD.totalTimePoint = SD.totalTimePoint.add(getTimeGen()*dt);
+    SD.point = SD.point.add(getTimeGen().mul(dt));
+    SD.totalPoint = SD.totalPoint.add(getTimeGen().mul(dt));
+    SD.totalTimePoint = SD.totalTimePoint.add(getTimeGen().mul(dt));
+    SD.alphaPoint = SD.alphaPoint.add(getAlphaGen().mul(dt));
+    SD.totalAlphaPoint = SD.totalAlphaPoint.add(getAlphaGen().mul(dt));
+
+    if (SD.alphaPoint.gte(5)) SD.alphaPoint = D(5);
 }
