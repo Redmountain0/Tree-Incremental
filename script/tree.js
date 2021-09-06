@@ -32,6 +32,16 @@ class TreeNode {
             this.unlocked = true;
             display = "visible";
         }
+        nodeDiv.onmouseover = new Function(`
+            $("#unlockInfoDisplay").classList.add('active');
+            $("#unlockInfoDisplay").style.left = "${100*this.position[0]+($("#treeDisplay").clientWidth+this.size)/2}px";
+            $("#unlockInfoDisplay").style.bottom = "${100*this.position[1]+($("#treeDisplay").clientHeight+this.size)/2}px";
+            $("#unlockInfoDisplay").innerHTML = "<h6>Unlock At:</h6>${this.unlockMsg}";
+        `);
+        nodeDiv.onmouseout = function() {
+            $("#unlockInfoDisplay").classList.remove('active');
+        }
+        nodeDiv.onclick = this.unlocked ? new Function(`nodeSelected = "${this.id}"`) : () => {}
         nodeDiv.style.position = "absolute";
         nodeDiv.style.display = display == "visible" ? "block" : "none";
         nodeDiv.style.left = `${100*this.position[0]+($("#treeDisplay").clientWidth-this.size)/2}px`;
