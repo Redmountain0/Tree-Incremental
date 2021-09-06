@@ -152,6 +152,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.ppc1.gte(15);
         },
+        unlockMsg: "ppC upgrade Lv.10<br>500 click count",
     }),
     new TreeNode({ // ppsTime
         id: "ppsTime", cnt: ["pps1"], // icon: ".resources/ppsTime.png",
@@ -183,6 +184,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.ppcClick.gte(5) && SD.upgrade.critp.gte(3);
         },
+        unlockMsg: "ppC per Click upgrade Lv.5<br>Crit Chance upgrade Lv.3",
     }),
     new TreeNode({ // CritChance
         id: "critChance", cnt: ["ppc1"], icon: "./resources/critPercent.png",
@@ -215,6 +217,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.critp.gte(5)
         },
+        unlockMsg: "Crit Chance ugprade Lv.5<br>150 crit count",
     }),
     new TreeNode({ // Setting
         id: "setting", cnt: ["main"], icon: "./resources/settingMenu.png",
