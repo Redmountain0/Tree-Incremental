@@ -1,6 +1,5 @@
 const defaultSD = {
     point: D(0),
-    alphaPoint: D(0),
     version: 0,
     upgrade: {
         ppc1: D(0),
