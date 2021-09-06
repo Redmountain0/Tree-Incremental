@@ -97,8 +97,8 @@ function treeRender() {
     }
 
     // render info
-    if ($("#infoDisplay").innerHTML == treeNodeList.find((e) => e.id == nodeSelected).rawhtml()) return;
-    $("#infoDisplay").innerHTML = treeNodeList.find((e) => e.id == nodeSelected).rawhtml();
+    if ($("#infoDisplay").innerHTML == languageSet[SD.lang].treeNode[nodeSelected]()) return;
+    $("#infoDisplay").innerHTML = languageSet[SD.lang].treeNode[nodeSelected]();
 }
 
 const treeNodeList = [
@@ -171,7 +171,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.ppc1.gte(10) && SD.clickCount.gte(500);
         },
-        unlockMsg: "ppC upgrade Lv.10, 500 click count",
+        unlockMsg: "ppC upgrade Lv.10<br>500 click count",
     }),
     new TreeNode({ // ppsTime
         id: "ppsTime", cnt: ["pps1"], icon: "./resources/ppsTime.png",
@@ -204,7 +204,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.ppcClick.gte(5) && SD.upgrade.critp.gte(3);
         },
-        unlockMsg: "ppC per Click upgrade Lv.5, Crit Chance upgrade Lv.3",
+        unlockMsg: "ppC per Click upgrade Lv.5<br>Crit Chance upgrade Lv.3",
     }),
     new TreeNode({ // CritChance
         id: "critChance", cnt: ["ppc1"], icon: "./resources/critPercent.png",
@@ -238,7 +238,7 @@ const treeNodeList = [
         unlock() {
             return SD.upgrade.critp.gte(5) && SD.critCount.gte(50)
         },
-        unlockMsg: "Crit Chance ugprade Lv.5, 50 crit count",
+        unlockMsg: "Crit Chance upgrade Lv.5<br>50 crit count",
     }),
     new TreeNode({ // Setting
         id: "setting", cnt: ["main"], icon: "./resources/settingMenu.png",

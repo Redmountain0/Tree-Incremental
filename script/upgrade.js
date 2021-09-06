@@ -56,7 +56,7 @@ const upgrades = {
     }),
     "critm": new Upgrade("critm", D(160), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(2000).mul(D(1.6).pow(lv)).add(D(1000).mul(lv)).floor(),
+            point: D(25000).mul(D(1.6).pow(lv)).add(D(75000)).floor(),
             alphaPoint: D(1)
         }
     }, function(lv=SD.upgrade[this.id]) {

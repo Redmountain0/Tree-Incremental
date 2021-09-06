@@ -19,5 +19,5 @@ function saveLoop() {
 }
 
 function infoRender() {
-    $("#pointDisplay").innerHTML = `You have <span id="pointDisplayInner">${$N(SD.point)}</span> points`;
+    $("#pointDisplay").innerHTML = languageSet[SD.lang].pointDisplay();
 }

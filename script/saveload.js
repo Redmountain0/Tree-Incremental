@@ -19,6 +19,7 @@ const defaultSD = {
     totalAlphaPoint: D(0),
     totalClickPoint: D(0),
     totalTimePoint: D(0),
+    lang: "en",
 }
 let SD = {};
 

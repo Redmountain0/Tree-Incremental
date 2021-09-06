@@ -1,3 +1,15 @@
+@font-face {
+    font-family: '777Balsamtint';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {    
+    font-family: "777Balsamtint";
+    font-size: 20px;
+}
+
 body {
     background-color: #232335;
     image-rendering: crisp-edges;
@@ -103,7 +115,7 @@ h3 {
     background-color: #121225;
     color: #abb;
     opacity: 0;
-    font-size: 10px;
+    font-size: 13px;
     pointer-events: none;
     transition: 0.2s;
 }
@@ -115,4 +127,5 @@ h3 {
 
 h6 {
     margin: 0px;
+    font-size: 13px;
 }
