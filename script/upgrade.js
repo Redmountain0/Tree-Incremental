@@ -49,14 +49,14 @@ const upgrades = {
     }),
     "critp": new Upgrade("critp", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(2500).mul(D(2).pow(lv)).add(D(500).mul(lv)).floor()
+            point: D(2000).mul(D(1.6).pow(lv)).add(D(2000)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return lv
     }),
     "critm": new Upgrade("critm", D(160), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(2000).mul(D(1.5).pow(lv)).add(D(1000).mul(lv)).floor(),
+            point: D(2000).mul(D(1.6).pow(lv)).add(D(1000).mul(lv)).floor(),
             alphaPoint: D(1)
         }
     }, function(lv=SD.upgrade[this.id]) {
@@ -64,23 +64,23 @@ const upgrades = {
     }),
     "ppcClick": new Upgrade("ppcClick", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(1500).mul(D(2).pow(lv)).add(D(1000).mul(lv)).floor()
+            point: D(1500).mul(D(1.6).pow(lv)).add(D(1000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return SD.clickCount.add(1).pow(0.5).log(2).div(10).mul(lv.pow(0.7)).add(1)
+        return SD.clickCount.add(1).pow(0.5).log(1.8).div(10).mul(lv.pow(0.7)).add(1)
     }),
     "ppcCrit": new Upgrade("ppcCrit", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(5000).mul(D(2).pow(lv)).add(D(3000).mul(lv)).floor()
+            point: D(8000).mul(D(1.8).pow(lv)).add(D(3000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
         return SD.critCount.add(1).pow(0.4).log(1.5).div(5).mul(lv.pow(0.7)).add(1)
     }),
     "ppsTime": new Upgrade("ppsTime", D(25), function(lv=SD.upgrade[this.id]) {
         return {
-            point: D(4000).mul(D(1.6).pow(lv)).add(D(2000).mul(lv)).floor()
+            point: D(5000).mul(D(1.6).pow(lv)).add(D(2000).mul(lv)).floor()
         }
     }, function(lv=SD.upgrade[this.id]) {
-        return D(new Date().getTime()-SD.start).div(1000).add(1).pow(0.3).log(2).div(10).mul(lv.pow(0.7)).add(1)
+        return D(new Date().getTime()-SD.start).div(1000).add(1).pow(0.3).log(1.8).div(10).mul(lv.pow(0.7)).add(1)
     }),
 }

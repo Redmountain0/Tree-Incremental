@@ -185,9 +185,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.pps1.gte(12)
+            return SD.upgrade.pps1.gte(15)
         },
-        unlockMsg: "ppS upgrade Lv.12",
+        unlockMsg: "ppS upgrade Lv.15",
     }),
     new TreeNode({ // ppcCrit
         id: "ppcCrit", cnt: ["ppcClick", "critChance"], icon: "./resources/ppcCrit.png",
@@ -197,7 +197,7 @@ const treeNodeList = [
             <br><h3>Upgrade: ppC based on Crit Count</h3>
             Level: ${SD.upgrade.ppcCrit}<br>
             Cost: ${priceMsg(upgrades.ppcCrit.cost())}<br>
-            Effect: +${$N(upgrades.ppcCrit.effect())} ppC<br>
+            Effect: x${$N(upgrades.ppcCrit.effect())} ppC<br>
             <button class="upgradeBtn" onclick="upgrades.ppcCrit.buy()">Buy</button>
             `
         },
@@ -236,9 +236,9 @@ const treeNodeList = [
             `
         },
         unlock() {
-            return SD.upgrade.critp.gte(5) && SD.critCount.gte(150)
+            return SD.upgrade.critp.gte(5) && SD.critCount.gte(50)
         },
-        unlockMsg: "Crit Chance ugprade Lv.5, 150 crit count",
+        unlockMsg: "Crit Chance ugprade Lv.5, 50 crit count",
     }),
     new TreeNode({ // Setting
         id: "setting", cnt: ["main"], icon: "./resources/settingMenu.png",
