@@ -12,7 +12,8 @@ languageSet.en = {
             Asset made by<br>
             versebrik<br><br>
             Tree<br>
-            spotky1004<br>
+            spotky1004<br><br>
+            <button class="upgradeBtn" onclick="window.open(url, '_blank').focus();">Discord Link</button>
         `},
         pps1() {return `
             <br><h3>Upgrade: Point per Sec I</h3>
@@ -63,6 +64,13 @@ languageSet.en = {
             Effect: +${$N(upgrades.critm.effect())}% Crit Mult<br>
             <button class="upgradeBtn" onclick="upgrades.critm.buy()">Buy</button>
         `},
+        critClick() {return `
+            <br><h3>Upgrade: Click Count gain when Crit</h3>
+            Level: ${SD.upgrade.critc}<br>
+            Cost: ${priceMsg(upgrades.critc.cost())}<br>
+            Effect: +${$N(upgrades.critc.effect())} Click Count<br>
+            <button class="upgradeBtn" onclick="upgrades.critc.buy()">Buy</button>
+        `},
         setting() {return `
             <br><h3>Setting</h3>
 
@@ -85,6 +93,10 @@ languageSet.en = {
             ppC: ${$N(getClickGen())}, ppS: ${$N(getTimeGen())}<br>
             Point gained by click: ${$N(SD.totalClickPoint)}<br>
             Point gained by time: ${$N(SD.totalTimePoint)}<br>`
+
+            if (SD.upgrade.stat.gte(2)) stat += `
+            Click Count: ${$N(SD.clickCount)}, Critical Count: ${$N(SD.critCount)}<br>
+            `
             
             return stat
         },

@@ -62,6 +62,14 @@ const upgrades = {
     }, function(lv=SD.upgrade[this.id]) {
         return lv.mul(5)
     }),
+    "critc": new Upgrade("critc", D(160), function(lv=SD.upgrade[this.id]) {
+        return {
+            point: D(150000).mul(D(1.6).pow(lv)).add(D(150000)).floor(),
+            alphaPoint: lv.pow(1.8).add(4).div(2).floor()
+        }
+    }, function(lv=SD.upgrade[this.id]) {
+        return lv
+    }),
     "ppcClick": new Upgrade("ppcClick", D(25), function(lv=SD.upgrade[this.id]) {
         return {
             point: D(1500).mul(D(1.6).pow(lv)).add(D(1000).mul(lv)).floor()

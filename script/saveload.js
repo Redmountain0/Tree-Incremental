@@ -8,6 +8,7 @@ const defaultSD = {
         stat: D(0),
         critp: D(0),
         critm: D(0),
+        critc: D(0),
         ppcClick: D(0),
         ppcCrit: D(0),
         ppsTime: D(0),

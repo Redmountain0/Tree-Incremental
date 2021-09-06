@@ -1,13 +1,13 @@
 @font-face {
-    font-family: '777Balsamtint';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('woff');
+    font-family: 'NanumBarunpen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 * {    
-    font-family: "777Balsamtint";
-    font-size: 20px;
+    font-family: "NanumBarunpen";
+    font-size: 15px;
 }
 
 body {
@@ -17,13 +17,13 @@ body {
 
 #pointDisplay {
     margin: 1vh 1vh 1vw 1vw;
-    font-size: 25px;
+    font-size: 20px;
     color: #ccccdd;
     text-shadow: 1px 1px 4px #aaaabb;
 }
 
 #pointDisplayInner {
-    font-size: 28px;
+    font-size: 23px;
     color: #bbbbdd;
     text-shadow: 1px 1px 4px #aaaacc;
 }
@@ -115,7 +115,7 @@ h3 {
     background-color: #121225;
     color: #abb;
     opacity: 0;
-    font-size: 13px;
+    font-size: 10px;
     pointer-events: none;
     transition: 0.2s;
 }
@@ -127,5 +127,5 @@ h3 {
 
 h6 {
     margin: 0px;
-    font-size: 13px;
+    font-size: 10px;
 }

@@ -10,7 +10,8 @@ languageSet.ko = {
         에셋 제작<br>
         versebrik<br><br>
         나무나무나므나믄무나ㅜㅁ나ㅜㅏ믄므ㅏㅡㅏ<br>
-        spotky1004<br>
+        spotky1004<br><br>
+        <button class="upgradeBtn" onclick="window.open('https://discord.gg/A2ftYJrzgb', '_blank').focus();">디스코드 링크</button>
         `},
         pps1() {return `
             <br><h3>업그레이드: 기본 초당 포인트</h3>
@@ -61,6 +62,13 @@ languageSet.ko = {
             효과: +${$N(upgrades.critm.effect())}% Crit Mult<br>
             <button class="upgradeBtn" onclick="upgrades.critm.buy()">구매</button>
         `},
+        critClick() {return `
+            <br><h3>업그레이드: 크리티컬 클릭 카운트</h3>
+            레벨: ${SD.upgrade.critc}<br>
+            가격: ${priceMsg(upgrades.critc.cost())}<br>
+            효과: +${$N(upgrades.critc.effect())} Click Count<br>
+            <button class="upgradeBtn" onclick="upgrades.critc.buy()">구매</button>
+        `},
         setting() {return `
             <br><h3>설정</h3>
 
@@ -84,6 +92,10 @@ languageSet.ko = {
             누적 포인트 (클릭): ${$N(SD.totalClickPoint)}<br>
             누적 포인트 (시간): ${$N(SD.totalTimePoint)}<br>`
             
+            if (SD.upgrade.stat.gte(2)) stat += `
+            클릭 횟수: ${$N(SD.clickCount)}, 크리티컬 횟수: ${$N(SD.critCount)}<br>
+            `
+
             return stat
         },
         achievement() {return `

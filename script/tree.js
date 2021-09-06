@@ -240,6 +240,14 @@ const treeNodeList = [
         },
         unlockMsg: "Crit Chance upgrade Lv.5<br>50 crit count",
     }),
+    new TreeNode({ // CritMult
+        id: "critClick", cnt: ["critMult"], icon: "./resources/critClickCount.png",
+        position: [4, 2], size: 64,
+        unlock() {
+            return SD.upgrade.critm.gte(5)
+        },
+        unlockMsg: "Crit Mult upgrade Lv.5",
+    }),
     new TreeNode({ // Setting
         id: "setting", cnt: ["main"], icon: "./resources/settingMenu.png",
         position: [0, 1], size: 64,
